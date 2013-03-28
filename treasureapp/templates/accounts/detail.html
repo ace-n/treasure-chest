@@ -8,13 +8,22 @@
 
 <h2>Balance: {{ account.balance }}</h2>
 
+<!-- Account description -->
 {% if account.description %}
 <h2>Description:</h2>
 
 <p>
 {{ account.description }}
 </p>
+{% endif %}
 
+<!-- Account label -->
+{% if account.label %}
+<h2>Label:</h2>
+
+<p>
+{{ account.label }}
+</p>
 {% endif %}
 
 <!-- Transaction list for this account -->

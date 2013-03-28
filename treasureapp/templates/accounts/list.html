@@ -13,6 +13,7 @@
         <tr>
             <th>Account Name</th>
             <th>Balance</th>
+	    <th>Label</th>
         </tr>
     </thead>
 
@@ -35,6 +36,7 @@
                     </div>
                 {% endif %}
             </td>
+	    <td>{{ account.label }}</td>
         </tr>
         {% endfor %}
     </tbody>

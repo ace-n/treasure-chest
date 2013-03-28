@@ -19,12 +19,14 @@ class Account(models.Model):
 	accessors - People who can edit the account
 	created_on - Time the account was created
 	updated_on - Last update time for the account
+	label - A category name for the account
 	"""
 
 	name = models.CharField(max_length = 200)
 	description = models.TextField(blank=True)
 	balance = models.DecimalField(max_digits = 30, decimal_places = 2,
 			blank=True)
+	label = models.CharField(max_length = 200)
 
 	accessors = models.ManyToManyField(AccountGroup)
 

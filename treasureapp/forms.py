@@ -10,7 +10,7 @@ class AccountForm(ModelForm):
 	class Meta:
 		model = Account
 		# User cannot directly edit cached balance
-		fields = ('name', 'description', 'accessors')
+		fields = ('name', 'description', 'accessors', 'label')
 
 class TransactionForm(ModelForm):
 	"""
