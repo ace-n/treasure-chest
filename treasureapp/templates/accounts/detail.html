@@ -32,7 +32,7 @@
 
     <tbody>
         {% for transaction in transactions %}
-        <tr {% if transaction.to_acct == account and transaction.from_acct != account %} style = "background-color:#33FF66" {% elif transaction.from_acct == account %} style = "background-color:#FF6666" {% endif %}>
+        <tr {% if transaction.to_acct == account and transaction.from_acct != account %} style = "background-color:#33FF66" {% elif transaction.to_acct != account and transaction.from_acct == account %} style = "background-color:#FF6666" {% endif %}>
             <td>{{ transaction.from_acct }}</td>
             <td>{{ transaction.to_acct }}</td>
             <td>{{ transaction.amount }}</td>
