@@ -4,6 +4,7 @@
 
 {% block content %}
 
+<!-- Account data -->
 <h1>Accounts</h1>
 
 {% if account_list %}
@@ -41,6 +42,25 @@
         {% endfor %}
     </tbody>
 
+</table>
+<br><br>
+
+<!-- Account labels -->
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Active Labels</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for label in label_list %}
+			<tr>
+				<td>
+					{{ label }}
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
 </table>
 
 {% else %}

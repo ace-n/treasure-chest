@@ -24,13 +24,22 @@ def account_list(request):
 	account_list = Account.objects.all()
 	return_list = []
 
+	# Get list of labels (there is probably some SQL command/a better way to do this)
+	label_list = []
+	for account in account_list:
+		if len(account.label) != 0:
+			label_list.append(account.label)
+
+	# Remove duplicate labels
+	label_list = list(set(label_list))
+
 	# TODO: Figure out how to grab this without linear search
 	for account in account_list:
 		if authenticate_account(request_user, account):
 			return_list.append(account)
 
 	context = RequestContext(request, {"section":"accounts",
-		"account_list":return_list})
+		"account_list":return_list, "label_list":label_list})
 	return render_to_response("accounts/list.html", context)
 
 @login_required
