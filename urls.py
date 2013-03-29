@@ -12,6 +12,7 @@ urlpatterns = patterns('treasureapp.views',
     url(r'^account/(?P<account_id>\d+)$', 'account_detail', {}, 'account_detail'),
     url(r'^account/new$', 'account_create', {}, 'account_create'),
     url(r'^account/$', 'account_list', {}, 'account_list'),
+    url(r'^account/(?P<label_filter>.+)$', 'account_list', {}, 'account_list'),
 
     # Transaction managment URLs
     url(r'^account/(?P<account_id>\d+)/transaction/new$', 'transaction_create', {}, 'transaction_create'),

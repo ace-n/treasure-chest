@@ -11,7 +11,7 @@ from treasureapp.forms import AccountForm
 from treasureapp.authenticators import authenticate_account
 
 @login_required
-def account_list(request):
+def account_list(request, label_filter = None):
 	"""
 	Render the listing of all accounts.
 
@@ -27,7 +27,7 @@ def account_list(request):
 	# Get list of labels (there is probably some SQL command/a better way to do this)
 	label_list = []
 	for account in account_list:
-		if len(account.label) != 0:
+		if account.label:
 			label_list.append(account.label)
 
 	# Remove duplicate labels
@@ -35,7 +35,7 @@ def account_list(request):
 
 	# TODO: Figure out how to grab this without linear search
 	for account in account_list:
-		if authenticate_account(request_user, account):
+		if authenticate_account(request_user, account) and (not label_filter or label_filter == account.label):
 			return_list.append(account)
 
 	context = RequestContext(request, {"section":"accounts",
