@@ -35,7 +35,7 @@ def account_list(request, label_filter = None):
 
 	# TODO: Figure out how to grab this without linear search
 	for account in account_list:
-		if authenticate_account(request_user, account) and (not label_filter or label_filter == account.label):
+		if authenticate_account(request_user, account) and (not label_filter or account.labels.filter(name=label_filter)):
 			return_list.append(account)
 
 	context = RequestContext(request, {"section":"accounts",
