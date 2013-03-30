@@ -4,6 +4,7 @@ from django.core.exceptions import PermissionDenied
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django import forms
 
 from treasureapp.models import Label
 from treasureapp.forms import LabelForm
@@ -43,7 +44,6 @@ def label_create(request, *args, **kargs):
 		if label_form.is_valid():
 			label_form.save()
 			return HttpResponseRedirect('/label')
-
 
 	# Recover the groups the accessor is in
 	request_user = request.user

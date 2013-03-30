@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+from django import forms
 
 class AccountGroup(models.Model):
 	name = models.CharField(max_length=30)
@@ -10,11 +11,20 @@ class AccountGroup(models.Model):
 		return self.name
 
 class Label(models.Model):
+
 	name = models.CharField(max_length=100)
 	accounts = models.ManyToManyField('Account')
 
 	def __unicode__(self):
 		return self.name
+
+	def validate_name(value):
+		for labelObject in Label.objects.all():
+			if labelObject.name == value:
+				raise forms.ValidationError("Invalid label.")
+		return value
+
+	name.validators=[validate_name]
 
 class Account(models.Model):
 	"""

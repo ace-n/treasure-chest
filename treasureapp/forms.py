@@ -1,3 +1,4 @@
+from django import forms
 from django.forms import Form, ModelForm, DecimalField, CharField
 
 from treasureapp.models import Account, Transaction, AccountGroup, Label
