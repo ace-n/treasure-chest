@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Treasure Chest | View label{% endblock %}
+
+{% block content %}
+
+<h1>Label name</h1>
+
+Linked groups:
+<i>List of groups where user can select which ones</i>
+
+<p>
+<a href="{% url label_list %}" class="btn btn-primary btn-large">
+    Cancel
+</a>
+</p>
+
+{% endblock %}

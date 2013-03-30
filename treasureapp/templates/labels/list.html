@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Treasure Chest | Labels{% endblock %}
+
+{% block content %}
+
+<h1>Labels</h1>
+
+{% if labels %}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Label Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for label in labels %}
+        <tr>
+            <td>
+                <a href="{% url account_list label %}">
+                    {{ label.name }}
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% else %}
+
+<!-- Page called without any labels passed through -->
+
+<h3>There aren't any labels yet. Why not make one?</h3>
+
+{% endif %}
+
+<p>
+<a href="{% url label_create %}" class="btn btn-primary">
+    Add new label
+</a>
+</p>
+
+{% endblock %}
