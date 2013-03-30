@@ -1,6 +1,6 @@
-from django.forms import Form, ModelForm, DecimalField
+from django.forms import Form, ModelForm, DecimalField, CharField
 
-from treasureapp.models import Account, Transaction, AccountGroup
+from treasureapp.models import Account, Transaction, AccountGroup, Label
 
 class AccountForm(ModelForm):
 	"""
@@ -10,7 +10,7 @@ class AccountForm(ModelForm):
 	class Meta:
 		model = Account
 		# User cannot directly edit cached balance
-		fields = ('name', 'description', 'accessors', 'label')
+		fields = ('name', 'description', 'accessors', 'labels')
 
 class TransactionForm(ModelForm):
 	"""
@@ -23,6 +23,15 @@ class TransactionForm(ModelForm):
 	class Meta:
 		model = Transaction
 		fields = ('to_acct', 'amount', 'description')
+
+class LabelForm(ModelForm):
+	"""
+	A form for creating and updating account labels.
+	"""
+
+	class Meta:
+		model = Label
+		fields = ('name', 'accounts')
 
 class AccountGroupForm(ModelForm):
 	"""

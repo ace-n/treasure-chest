@@ -20,7 +20,6 @@
 
     <tbody>
         {% for account in account_list %}
-		{% if not label_filter or account.label == label_filter %}
 		<tr>
 		    <td>
 		        <a href="{% url account_detail account.pk %}">
@@ -40,7 +39,6 @@
 		    </td>
 		    <td>{{ account.label }}</td>
 		</tr>
-		{% endif %}
 	{% endfor %}
     </tbody>
 

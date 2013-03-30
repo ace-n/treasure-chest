@@ -36,6 +36,10 @@
                         <a href="{% url group_manager %}">Groups</a>
                     </li>
 
+		    <li {% if section == 'labels' %} class="active" {% endif %}>
+                        <a href="{% url label_list %}">Labels</a>
+                    </li>
+
                     <li {% if section == 'help' %} class="active" {% endif %}>
                         <a href="{% url help %}">Help</a>
                     </li>

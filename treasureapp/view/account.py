@@ -26,9 +26,9 @@ def account_list(request, label_filter = None):
 
 	# Get list of labels (there is probably some SQL command/a better way to do this)
 	label_list = []
-	for account in account_list:
-		if account.label:
-			label_list.append(account.label)
+	#for account in account_list:
+	#	for label in account.labels:
+	#		label_list.append(label)
 
 	# Remove duplicate labels
 	label_list = list(set(label_list))

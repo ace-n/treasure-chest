@@ -9,6 +9,13 @@ class AccountGroup(models.Model):
 	def __unicode__(self):
 		return self.name
 
+class Label(models.Model):
+	name = models.CharField(max_length=100)
+	accounts = models.ManyToManyField('Account')
+
+	def __unicode__(self):
+		return self.name
+
 class Account(models.Model):
 	"""
 	An account represents a real-world source of money
@@ -26,8 +33,7 @@ class Account(models.Model):
 	description = models.TextField(blank=True)
 	balance = models.DecimalField(max_digits = 30, decimal_places = 2,
 			blank=True)
-	label = models.CharField(max_length = 200)
-	labels = models.TextField(blank=True)
+	labels = models.ManyToManyField(Label)
 
 	accessors = models.ManyToManyField(AccountGroup)
 

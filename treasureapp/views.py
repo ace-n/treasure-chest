@@ -6,3 +6,4 @@ from treasureapp.view.content import *
 from treasureapp.view.account import *
 from treasureapp.view.transaction import *
 from treasureapp.view.authentication import *
+from treasureapp.view.label import *
