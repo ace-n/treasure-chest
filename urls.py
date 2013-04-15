@@ -26,8 +26,8 @@ urlpatterns = patterns('treasureapp.views',
     url(r'^group/$', 'group_manager', {}, 'group_manager'),
 
     # Label URLs
-    url(r'^label/$', 'label_list', {}, 'label_list'),
-    url(r'^label/new$', 'label_create', {}, 'label_create'),
+    url(r'^labels/$', 'label_list', {}, 'label_list'),
+    url(r'^labels/new$', 'label_create', {}, 'label_create'),
 
     # Site standard content URLs
     url(r'^help$', 'help', {}, 'help'),

@@ -14,7 +14,6 @@
         <tr>
             <th>Account Name</th>
             <th>Balance</th>
-	    <th>Label (TODO: each account can have multiple labels)</th>
         </tr>
     </thead>
 
@@ -37,36 +36,12 @@
 		            </div>
 		        {% endif %}
 		    </td>
-		    <td>{{ account.label }}</td>
 		</tr>
 	{% endfor %}
     </tbody>
 
 </table>
 <br>
-
-<!-- Account labels -->
-TODO - This shouldn't show up if label_filter is None. It does anyway.
-{% if not label_filter %}
-<table class="table table-bordered table-striped">
-	<thead>
-		<tr>
-			<th>Active Labels</th>
-		</tr>
-	</thead>
-	<tbody>
-		{% for label in label_list %}
-			<tr>
-				<td>
-					<a href="{% url account_list label %}">
-						{{ label }}
-					</a>
-				</td>
-			</tr>
-		{% endfor %}
-	</tbody>
-</table>
-{% endif %}
 
 {% else %}
 

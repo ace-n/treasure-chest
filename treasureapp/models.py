@@ -18,14 +18,6 @@ class Label(models.Model):
 	def __unicode__(self):
 		return self.name
 
-	def validate_name(value):
-		for labelObject in Label.objects.all():
-			if labelObject.name == value:
-				raise forms.ValidationError("Invalid label.")
-		return value
-
-	name.validators=[validate_name]
-
 class Account(models.Model):
 	"""
 	An account represents a real-world source of money
