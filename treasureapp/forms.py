@@ -35,14 +35,6 @@ class LabelForm(ModelForm):
 		model = Label
 		fields = ('name', 'accounts')
 
-	def clean_name(self):
-
-		# Verify name
-		for labelObject in Label.objects.all():
-			if labelObject.name == self.cleaned_data['name']:
-				raise forms.ValidationError("Duplicate name")
-		return self.cleaned_data['name']
-
 class AccountGroupForm(ModelForm):
 	"""
 	A form for creating and updating user groups.

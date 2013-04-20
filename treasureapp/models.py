@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django import forms
 
 class AccountGroup(models.Model):
-	name = models.CharField(max_length=30)
+	name = models.CharField(max_length=30, unique=True)
 	members = models.ManyToManyField(User)
 
 	def __unicode__(self):
@@ -12,7 +12,7 @@ class AccountGroup(models.Model):
 
 class Label(models.Model):
 
-	name = models.CharField(max_length=100)
+	name = models.CharField(max_length=100, unique=True)
 	accounts = models.ManyToManyField('Account')
 
 	def __unicode__(self):
@@ -31,7 +31,7 @@ class Account(models.Model):
 	labels - Tags for the account
 	"""
 
-	name = models.CharField(max_length = 200)
+	name = models.CharField(max_length = 200, unique=True)
 	description = models.TextField(blank=True)
 	balance = models.DecimalField(max_digits = 30, decimal_places = 2,
 			blank=True)
